@@ -8,6 +8,7 @@
     </button>
     <button
       v-else
+      @click="$router.push('/')"
     >
       Salvar
     </button>
