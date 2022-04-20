@@ -1,0 +1,15 @@
+// flexItens 
+@mixin flex-itens($flexDirection, $justifyContent, $alignItems, $flexWrap) {
+  display: flex;
+  flex-direction: $flexDirection;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  flex-wrap: $flexWrap;
+}
+
+// mobile-version
+@mixin mobile-version {
+  @media (max-width: 425px) {
+    @content;
+  }
+}
