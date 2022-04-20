@@ -8,11 +8,11 @@
     <form @submit.prevent="">
         <label for="name">
           <span>Nome</span>
-          <input type="text" name="name" placeholder="Digite o nome">    
+          <input v-model="name" type="text" name="name" placeholder="Digite o nome">    
         </label>
         <label for="email">
           <span>Email</span>
-          <input type="text" name="email" placeholder="me@example.com">
+          <input v-model="email" type="text" name="email" placeholder="me@example.com">
         </label>
         <SelectorForm :options="departments"/>
         <SelectorForm :options="occupations"/>
@@ -57,10 +57,12 @@ export default {
         'Editor',
       ],
       home: false,
+      name: '',
+      email: '',
     }
   },
 }
 </script>
 
-<style lang="scss">
+<style lang="sass">
 </style>
