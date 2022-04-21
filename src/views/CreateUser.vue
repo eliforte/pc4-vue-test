@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <div>
-      <label title="Foto">
-        <img src="test" alt="teste">
-      </label>
-    </div>
-    <form @submit.prevent="">
+  <div class="form-container">
+    <label title="Foto">
+      <img src="test" alt="teste">
+    </label>
+    <form>
         <label for="name">
           <span>Nome</span>
           <input v-model="name" type="text" name="name" placeholder="Digite o nome">    
@@ -14,9 +12,9 @@
           <span>Email</span>
           <input v-model="email" type="text" name="email" placeholder="me@example.com">
         </label>
-        <SelectorForm :options="departments"/>
-        <SelectorForm :options="occupations"/>
-        <SelectorForm :options="roles"/>
+        <SelectorForm :title="title = 'Setor'" :options="departments"/>
+        <SelectorForm :title="title = 'Cargo'" :options="occupations"/>
+        <SelectorForm :title="title = 'Função'" :options="roles"/>
         <ButtonForm :typeButton="home"/>
     </form>
   </div>
@@ -56,6 +54,7 @@ export default {
         'Admin',
         'Editor',
       ],
+      title: '',
       home: false,
       name: '',
       email: '',
@@ -65,4 +64,13 @@ export default {
 </script>
 
 <style lang="sass">
+@import '../sass/_mixins';
+
+.form-container
+  width: 100%
+  margin: 1.2rem
+
+form
+  display: flex
+  flex-direction: column
 </style>
