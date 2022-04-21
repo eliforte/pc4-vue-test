@@ -185,12 +185,10 @@ export default {
         
         @keyframes changeButton 
           to 
-            transform: translateZ(-1px)
             transform: rotateY(20deg)
             opacity: 1
           from
-            transform: translateZ(0)
-            transform: rotateY(10deg)
-            opacity: 0.70
+            transform: rotateY(5deg)
+            opacity: 0.90
         
 </style>
