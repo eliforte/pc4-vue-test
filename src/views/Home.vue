@@ -86,7 +86,7 @@ export default {
   @include mobile-version
     border: solid 1px #E5E7EB
     grid-template-columns: repeat(3, 1fr)
-    padding: 10px 10px  
+    padding: 10px 0px  
     display: grid
 
   .box-profile
@@ -125,22 +125,21 @@ export default {
     justify-content: center
     align-items: center
     justify-items: center
-    height: 90px
+    height: 120px
     width: 175px
-    margin: 1rem .2rem
 
     h3
-      margin: 0
       font-size: 1.1rem
       font-weight: bold
       color: #111827
-      justify-items: end
-
+      justify-items: flex-end
+      margin: 0
     p
       grid-column-start: 1
       grid-column-end: 4
       font-size: 1rem
       color: #6B7280
+      margin: 0
 
     .label-mobile
       color: #656565
@@ -148,7 +147,7 @@ export default {
   .status
     border-radius: 4px
     padding: 10px 10px
-    margin: 51px 12px
+    margin: 10px 12px
     font-weight: bold
 
   .active
@@ -162,10 +161,11 @@ export default {
   .end
     display: flex
     justify-content: center
-    align-items: center
 
   .role
     color: #6B7280
+    padding: 10px 10px
+    margin: 10px 12px
 
   .edit-btn
     color: #4F46E5
