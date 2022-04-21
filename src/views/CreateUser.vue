@@ -1,7 +1,11 @@
 <template>
   <div class="form-container">
-    <label title="Foto">
-      <img src="test" alt="teste">
+    <label class="user-container">
+      <span>Nome</span>
+      <div class="image-container">
+        <img src="test" alt="teste">
+        <button>Modificar</button>
+      </div>
     </label>
     <form>
         <label for="name">
@@ -66,11 +70,41 @@ export default {
 <style lang="sass">
 @import '../sass/_mixins';
 
-.form-container
-  width: 100%
-  margin: 1.2rem
+@include mobile-version
+  .form-container
+    display: flex
+    flex-direction: column
+    width: 100%
+    margin: 1.2rem
 
-form
-  display: flex
-  flex-direction: column
+  .user-container
+    display: flex
+    flex-direction: column
+    
+    span
+      font-size: 1.2rem
+      font-weight: bold
+
+    .image-container
+      img
+        width: 100px
+        height: 100px
+        border-radius: 50%
+        border: solid 1px #E5E7EB
+        margin: 0 1rem
+
+      button
+        background-color: #fff
+        color: #111827
+        border: solid 1px #E5E7EB
+        border-radius: 4px
+        padding: 0.5rem 1rem
+        margin-top: 1rem
+        font-size: 1.2rem
+        cursor: pointer
+      
+
+  form
+    display: flex
+    flex-direction: column
 </style>
