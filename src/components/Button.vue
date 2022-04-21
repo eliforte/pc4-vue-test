@@ -1,14 +1,15 @@
 <template>
   <div class="button-container">
     <button
+      type="button"
       class="btn-create"
-      v-if="typeButton"
+      v-if="homeButton"
       @click="$router.push('/create')"
     >
       Novo
     </button>
     <button
-      disabled="{{ error }}"
+      type="button"
       class="btn-create"
       v-else
       @click="$router.push('/')"
@@ -23,11 +24,7 @@
 export default {
   name: 'ButtonForm',
   props: {
-    erro: {
-      type: Boolean,
-      required: true,
-    },
-    typeButton: {
+    homeButton: {
       type: Boolean,
       required: true
     }
