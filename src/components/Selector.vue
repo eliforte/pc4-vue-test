@@ -1,7 +1,7 @@
 <template>
   <label class="label-select">
     <span class="title-select">{{ title }}</span>
-    <select v-model="select">
+    <select v-model="select" @change="setUser">
       <option selected disabled value="Selecione o item">Selecione o item</option>
       <option v-for="(option, index) in options" :key="index">
         {{ option }}
@@ -50,6 +50,7 @@ export default {
     padding: .7rem 0
     width: 100%
     border-radius: 6px
+    color: #6B7280
 
     &:active
       width: 100%
