@@ -8,6 +8,7 @@
       Novo
     </button>
     <button
+      disabled="{{ error }}"
       class="btn-create"
       v-else
       @click="$router.push('/')"
@@ -22,6 +23,10 @@
 export default {
   name: 'ButtonForm',
   props: {
+    erro: {
+      type: Boolean,
+      required: true,
+    },
     typeButton: {
       type: Boolean,
       required: true
@@ -36,7 +41,7 @@ export default {
 @include mobile-version
   .btn-create
     font-size: 1.2rem
-    margin: 4rem 0 1rem 0
+    margin: 2rem 0 1rem 0
     padding: 1rem 0
     width: 100%
     background-color: #4F46E5
