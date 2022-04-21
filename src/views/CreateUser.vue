@@ -165,13 +165,14 @@ export default {
         margin: .2rem 0 .4rem 0
         color: #E42C17
         position: static
-        animation: showText 500ms normal
+        animation: showText 100ms linear alternate-reverse
 
         @keyframes showText 
-          to
-            transform: 
-            opacity: 0.5
           from
+            transform: translateY(0px)
+            opacity: 0.7
+          to
+            transform: translateY(5px)
             opacity: 1
         
 
