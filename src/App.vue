@@ -10,9 +10,10 @@ export default {
 </script>
 
 <style lang="sass">
+
 #app
   font-family: 'Roboto', sans-serif
   box-sizing: border-box
   display: flex
-
+  width: 100%
 </style>
