@@ -7,16 +7,17 @@
         <button>Modificar</button>
       </div>
     </label>
-    <form>
+    <form autocomplete="off" @submit.prevent="syncToLocalStorage">
         <label for="name">
           <span>Nome</span>
           <input
-            @blur="name.length <= 3 ? erroName = 'erro' : erroName = 'ok'"
-            v-model="name"
+            @blur="getFormUser.name.length <= 3 ? erroName = 'erro' : erroName = 'ok'"
+            :model-value="getFormUser.name"
+            @change="setFormUser({ value: $event.target.value, prop: 'name' })"
             type="text" 
             name="name"
-            :class="erroName === 'erro' ? 'input-form erro' : 'input-form'"
             placeholder="Digite o nome"
+            :class="erroName === 'erro' ? 'input-form erro' : 'input-form'"
           >
           <h5 class="erro-text" v-if="erroName === 'erro'">O campo deve conter 3 caracteres ou mais</h5>
         </label>
@@ -24,19 +25,20 @@
           <span>Email</span>
           <input
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            v-model="email"
-            type="text"
+            :model-value="getFormUser.email"
+            @change="setFormUser({ value: $event.target.value, prop: 'email' })"
+            type="email"
             name="email" 
             placeholder="me@example.com"
             class="input-form"
           >
         </label>
-        <SelectorForm :title="title = 'Setor'" :options="departments"/>
-        <SelectorForm :title="title = 'Cargo'" :options="occupations"/>
-        <SelectorForm :title="title = 'Função'" :options="roles"/>
+        <SelectorForm propKey="department" :title="title = 'Setor'" :options="departments"/>
+        <SelectorForm propKey="occupation" :title="title = 'Cargo'" :options="occupations"/>
+        <SelectorForm propKey="role" :title="title = 'Função'" :options="roles"/>
         <img class="switch-button" v-if="erroName !== 'ok'" src="../assets/inative.svg" alt="switch-image-off"/>
         <img class="switch-button" v-else src="../assets/active.svg" alt="switch-image-on"/>
-        <ButtonForm :typeButton="home"/>
+        <ButtonForm :homeButton="homeButton"/>
     </form>
   </div>
 </template>
@@ -44,6 +46,7 @@
 <script>
 import ButtonForm from '../components/Button.vue'
 import SelectorForm from '../components/Selector.vue'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: 'CreateUser',
@@ -51,11 +54,16 @@ export default {
     SelectorForm,
     ButtonForm,
   },
+  computed: {
+    ...mapGetters(['getFormUser'])
+  },
   methods: {
     validEmail: function (email) {
       var pattern = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i;
       return pattern.test(email);
     },
+    ...mapMutations(['setFormUser']),
+    ...mapActions(['syncToLocalStorage']),
   },
   data() {
     return {
@@ -82,7 +90,7 @@ export default {
         'Editor',
       ],
       title: '',
-      home: false,
+      homeButton: false,
       name: '',
       email: '',
       erroName: '',

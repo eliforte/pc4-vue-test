@@ -1,7 +1,10 @@
 <template>
   <label class="label-select">
     <span class="title-select">{{ title }}</span>
-    <select v-model="select" @change="setUser">
+    <select
+      :model-value="getFormUser[propKey]"
+      @change="setFormUser({ value: $event.target.value, prop: propKey })"
+    >
       <option selected disabled value="Selecione o item">Selecione o item</option>
       <option v-for="(option, index) in options" :key="index">
         {{ option }}
@@ -11,20 +14,23 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'SelectorForm',
   props: {
     title: String,
+    propKey: String,
     options: {
       type: Array,
       required: true
     }
   },
-  data() {
-    return {
-      select: 'Selecione o item',
-    }
+  computed: {
+    ...mapGetters(['getFormUser'])
+  },
+  methods: {
+    ...mapMutations(['setFormUser']),
   }
 }
 

@@ -29,7 +29,7 @@
         </tr>
       </tbody>
     </table>
-    <ButtonForm :typeButton="home"/>
+    <ButtonForm :homeButton="homeButton"/>
   </div>
 </template>
 
@@ -47,7 +47,7 @@ export default {
       titles: ['Nome', 'Cargo', 'Status', 'Função'],
       users: [],
       loading: false,
-      home: true,
+      homeButton: true,
       screen: 0,
       ok: false,
     }
@@ -130,6 +130,15 @@ export default {
     justify-items: center
     height: 120px
     width: 175px
+    animation: showContainer 200ms linear alternate-reverse
+
+    @keyframes showContainer 
+      to
+        transform: translateY(-20px)
+        opacity: 0.1
+      from
+        transform: translateY(0)
+        opacity: 1
 
     h3
       font-size: 1.1rem
@@ -164,6 +173,7 @@ export default {
   .end
     display: flex
     justify-content: center
+    animation: showContainer 200ms linear alternate-reverse
 
   .role
     color: #6B7280
