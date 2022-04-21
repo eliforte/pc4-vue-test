@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home-container">
     <table >
       <thead class="header-table">
         <tr v-for="(title, index) in titles" :key="index">
@@ -75,6 +75,9 @@ export default {
 <style lang="sass">
 @import '../sass/_mixins';
 
+.home-container
+  width: 100%
+  height: 100%
 
 .header-table
   display: flex
