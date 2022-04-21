@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="button-container">
     <button
       class="btn-create"
       v-if="typeButton"
@@ -39,11 +39,15 @@ export default {
 @import '../sass/_mixins';
 
 @include mobile-version
+  .button-container
+    display: flex
+    justify-content: center
+
   .btn-create
     font-size: 1.2rem
     margin: 2rem 0 1rem 0
     padding: 1rem 0
-    width: 100%
+    width: 50%
     background-color: #4F46E5
     color: #fff
     border: solid 1px #fff
