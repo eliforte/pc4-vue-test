@@ -12,7 +12,7 @@
       type="button"
       class="btn-create"
       v-else
-      @click="$router.push('/')"
+      @click="$router.push('/'), syncToLocalStore()"
     >
       Salvar
     </button>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 
 export default {
   name: 'ButtonForm',
@@ -29,6 +30,9 @@ export default {
       required: true
     }
   },
+  methods: {
+    ...mapActions(['syncToLocalStore']),
+  }
 }
 </script>
 
