@@ -34,8 +34,8 @@
           >
         </label>
         <SelectorForm propKey="department" :title="title = 'Setor'" :options="departments"/>
-        <SelectorForm propKey="occupation" :title="title = 'Cargo'" :options="occupations"/>
-        <SelectorForm propKey="role" :title="title = 'Função'" :options="roles"/>
+        <SelectorForm propKey="occupation" :title="title = 'Função'" :options="occupations"/>
+        <SelectorForm propKey="role" :title="title = 'Cargo'" :options="roles"/>
         <img class="switch-button" v-if="erroName !== 'ok'" src="../assets/inative.svg" alt="switch-image-off"/>
         <img class="switch-button" v-else src="../assets/active.svg" alt="switch-image-on"/>
         <ButtonForm :homeButton="homeButton"/>
@@ -75,7 +75,7 @@ export default {
         'Ads',
         'Architectural Genie',
       ],
-      roles: [
+      occupations: [
         'Trainee',
         'Computer Network Architect',
         'Specialist',
@@ -84,7 +84,7 @@ export default {
         'Brand Manager',
         'Account executive',
       ],
-      occupations: [
+      roles: [
         'Admin',
         'Editor',
       ],
