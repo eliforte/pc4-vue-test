@@ -7,7 +7,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="tr-body-container" v-for="(user, index) in users" :key="index">
+        <tr class="tr-body-container" v-for="(user, index) in getUsers" :key="index">
           <td @click="user.ok = !user.ok" class="box-profile">
             <img :src="user.profile_image" :alt="user.name">
             <div>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import getUsers from '../service/api'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 import ButtonForm from '../components/Button.vue'
 
 export default {
@@ -45,28 +45,23 @@ export default {
   data() {
     return {
       titles: ['Nome', 'Cargo', 'Status', 'Função'],
-      users: [],
       loading: false,
       homeButton: true,
       screen: 0,
       ok: false,
     }
   },
+  computed: {
+    ...mapGetters(['getUsers']),
+  },
   methods: {
-    getUsers,
+    ...mapMutations(['setUsers']),
+    ...mapActions(['setUsers']),
   },
   mounted() {
     this.loading = true
     this.screen = window.screen.width
-    this.getUsers()
-    if(localStorage.getItem('users')) {
-      this.users = JSON.parse(localStorage.getItem('users'))
-        .map(user => {
-          user.ok = false
-          return user
-        })
-      this.loading = false
-    }
+    this.setUsers()
   }
 }
 

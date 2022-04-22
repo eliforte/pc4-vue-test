@@ -7,7 +7,7 @@
         <button>Modificar</button>
       </div>
     </label>
-    <form autocomplete="off" @submit.prevent="syncToLocalStorage">
+    <form autocomplete="off" >
         <label for="name">
           <span>Nome</span>
           <input
@@ -46,7 +46,7 @@
 <script>
 import ButtonForm from '../components/Button.vue'
 import SelectorForm from '../components/Selector.vue'
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'CreateUser',
@@ -63,7 +63,6 @@ export default {
       return pattern.test(email);
     },
     ...mapMutations(['setFormUser']),
-    ...mapActions(['syncToLocalStorage']),
   },
   data() {
     return {
