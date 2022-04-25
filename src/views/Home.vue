@@ -87,15 +87,19 @@ export default {
   width: 100%
 
   table
-    padding: 30px 0
+    padding: 30px 0 120px 0
     border: 1px solid #F9FAFB
     border-radius: 10px
-    margin: 97px 217px
+    margin: 97px 300px
     background-color: #fff
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
 
     @include mobile-version
+      width: 100%
       margin: 0
+      padding: 0
+      border: none
+      box-shadow: none
 
 .header-table
   color: #6B7280
@@ -116,7 +120,6 @@ export default {
 
   .th-role
     
-
   th
     grid-template-columns: repeat(3, 1fr)
 
@@ -164,7 +167,7 @@ export default {
     border-radius: 50%
     
     @include mobile-version
-      width: 170px
+      width: 120px
       height: 120px
 
   div
@@ -172,6 +175,7 @@ export default {
     flex-direction: column
     flex-wrap: wrap
     justify-content: center
+    width: 200px
 
     @include mobile-version
       flex-direction: row
@@ -180,7 +184,11 @@ export default {
       margin: auto 10px
       color: #111827
       font-size: 19px
-    
+      
+      @include mobile-version
+        height: 20px
+        width: 60px
+
     p
       color: #6B7280
       margin: .1rem 10px
@@ -198,7 +206,7 @@ export default {
   @include mobile-version
     grid-column-start: 1
     flex-direction: row
-    flex-wrap: wrap
+    flex-wrap: nowrap
     padding-left: 100px
     align-items: center
     align-content: center
