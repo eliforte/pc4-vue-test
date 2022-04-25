@@ -43,28 +43,46 @@ export default {
   display: flex
   flex-direction: column
   margin-bottom: 1rem
-  width: 100%
-
-  .title-select
-    font-size: 1.2rem
-    margin: 0 0 1rem 0
+  height: 70px
 
   select
     border: solid 1px #C4C4C4
     background-color: #fff
-    font-size: 1.2rem
+    font-size: 14px
     padding: .7rem 0
-    width: 100%
+    width: 355px
+    height: 40px
+    margin-right: 30px
     border-radius: 6px
     color: #6B7280
 
-    &:active
-      width: 100%
-      border-radius: 4px
+@include mobile-version
+  .label-select
+    display: flex
+    flex-direction: column
+    margin-bottom: 30px
+    width: 100%
 
+    .title-select
+      font-size: 1.2rem
+      margin: 0 0 1rem 0
 
-.title-select
-  font-weight: bold
-  font-size: 1.2rem
-  margin: 0 2rem 1rem 0
+    select
+      border: solid 1px #C4C4C4
+      background-color: #fff
+      font-size: 16px
+      padding: .7rem 0
+      height: 40px
+      border-radius: 6px
+      color: #6B7280
+
+      &:active
+        width: 100%
+        border-radius: 4px
+
+  .title-select
+    font-weight: bold
+    font-size: 1.2rem
+    margin: 0 2rem 1rem 0
+
 </style>
